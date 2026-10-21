@@ -1,0 +1,416 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    background-color: #fff;
+    min-width: 320px;
+}
+
+a {
+    text-decoration: none;
+    color: #eea255;
+    transition: all .5s;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #000;
+
+}
+
+::selection {
+    background-color: #eea255;
+    color: #fff;
+}
+
+.btn {
+	position: relative;
+	overflow: hidden;
+    /* НЕЖНО-ГОЛУБОЙ ЦВЕТ */
+    background-color: #a8d8ea !important;
+    border-color: #a8d8ea !important;
+    color: #fff !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    /* Чуть темнее при наведении */
+    background-color: #86c5da !important;
+    border-color: #86c5da !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(168, 216, 234, 0.5);
+}
+
+.btn:hover::before {
+	animation: effect 1s ease;
+}
+.btn::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 50%;
+	transform: scale(0);
+}
+@keyframes effect {
+	from {
+		transform:scale(0);
+		opacity:1;
+	}
+	to {
+		transform:scale(3);
+		opacity:0;
+	}
+}
+
+.header-top {
+    background-color: #eea255;
+    position: relative;
+}
+
+.header-top #search {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transition: all .2s;
+	transform: scale(0);
+	display: flex;
+	background-color: #eea255;
+	z-index: 1;
+}
+
+.header-top #search.active {
+	transform: scale(1);
+}
+
+#search .form-control {
+	border-radius: 0;
+}
+
+.header-top a {
+    color: #fff;
+}
+
+.header-top a:hover {
+    color: #000;
+}
+
+
+
+.modal-body img {
+    max-width: 100px;
+}
+
+.header-top .icons a {
+    padding: 10px;
+}
+
+.header-top .icons i {
+    font-size: 18px;
+}
+
+.header-top .icon-phone {
+    font-size: 18px;
+}
+
+.modal-body a {
+    color: #eea255;
+}
+
+li a.dropdown-item {
+    color: #000;
+}
+
+li a.dropdown-item:focus, 
+li a.dropdown-item:hover {
+    background-color: #eea255;
+    color: #000;
+}
+
+.header-bottom .nav-link {
+    color: #000;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.my-carousel {
+    padding: 0;
+}
+
+.my-carousel .carousel-item {
+    max-height: 800px;
+}
+
+.my-carousel .carousel-item img {
+    object-fit: cover;
+}
+
+.section-title {
+    text-transform: uppercase;
+    color: #000;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.product-card .product-thumb {
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    padding: 20px;
+}
+
+.product-card .product-thumb img{
+    max-height: 100%;
+}
+
+.product-card {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 15px 30px 0px rgba(0, 0, 0, 0.7);
+}
+
+.product-card .product-details {
+    padding: 30px;
+}
+
+.product-card .product-details h4 a {
+    display: block;
+    font-weight: 500;
+    min-height: 50px;
+}
+
+.product-card .product-details p {
+    font-size: 16px;
+    color: #999;
+    height: 50px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.product-card .product-details .product-bottom {
+    overflow: hidden;
+    border-top: 1px solid #999;
+    padding-top: 20px;
+}
+
+.product-card .product-details .product-bottom .product-price {
+    font-size: 18px;
+    color: #eea255;
+    font-weight: 600;
+}
+
+.product-card .product-price small {
+    color: #999;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-right: 5px;
+}
+
+.product-card .product-link {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #eea255;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 30px;
+    opacity: 0.5;
+    display: none;
+}
+
+#top:hover {
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+/* ===== Блок преимуществ ===== */
+.service-item {
+    transition: all .5s;
+    padding: 40px 20px;
+    margin: 0 10px;
+    position: relative;
+}
+
+.service-item i {
+    font-size: 70px;
+    color: #eea255;
+}
+
+.service-item p {
+    position: relative;
+    z-index: 5;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.service-item::before {
+    border-bottom: 1px solid #eea255;
+    border-left: 1px solid #eea255;
+}
+
+.service-item::after {
+    border-top: 1px solid #eea255;
+    border-right: 1px solid #eea255;
+    transform-origin: 100% 0;
+}
+
+.service-item::after,
+.service-item::before {
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.service-item:hover::after,
+.service-item:hover::before {
+    transform: scale(1);
+}
+
+/* ===== Footer ===== */
+.footer {
+    background-color: #343434;
+}
+
+.footer h4 {
+    color: #ccc;
+    text-transform: uppercase;
+    font-size: 16px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 3px;
+    margin-bottom: 15px;
+}
+
+.footer a,
+.footer li {
+    color: #c8c8c8;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer ul li a {
+    display: block;
+}
+
+.footer-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.footer-icons a:hover {
+    color: #eea255;
+}
+
+/* ===== Страница категории: сайдбар ===== */
+.sidebar-toggler {
+    display: none;
+}
+
+.sidebar-toggler .btn {
+    width: 100%;
+}
+
+.sidebar .list-group-item {
+    color: #000;
+}
+
+.sidebar .list-group-item.active {
+    background-color: #eea255;
+    border-color: #eea255;
+    color: #fff;
+}
+
+.sidebar .list-group-item:hover {
+    background-color: #f5f5f5;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+}
+
+.breadcrumb a {
+    color: #eea255;
+}
+
+.breadcrumb-item.active {
+    color: #999;
+}
+
+/* Мобильная версия */
+@media (max-width: 991.98px) {
+    .sidebar-toggler {
+        display: block;
+    }
+    .sidebar-menu {
+        display: none;
+    }
+}
+
+/* ===== БЕЙДЖИ (HIT / SALE) В НЕЖНЫХ ТОНАХ ===== */
+.offer {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.offer-hit, .offer-sale {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 20px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+}
+
+/* Hit — нежно-голубой (как кнопки) */
+.offer-hit {
+    background-color: #a8d8ea;
+}
+
+/* Sale — нежно-розовый (для контраста) */
+.offer-sale {
+    background-color: #ffb7b2;
+}
+
+
