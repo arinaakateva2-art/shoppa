@@ -34,17 +34,26 @@
                         </td>
                     </tr>
                 @endforeach
-                <tr>
-                    <td colspan="4" align="right"><b>Итого:</b></td>
-                    <td id="modal-cart-qty">{{ session('cart_qty') }}</td>
-                </tr>
-                <tr>
-                    <td colspan="4" align="right"><b>На сумму:</b></td>
-                    <td id="modal-cart-total">@priceFormat(session('cart_total')) руб.</td>
-                </tr>
             </tbody>
         </table>
     </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+        <div>
+            <button type="button" class="btn btn-outline-danger btn-sm clear-cart" 
+                    data-action="{{ route('cart.clear') }}">
+                <i class="fas fa-trash-alt"></i> Очистить корзину
+            </button>
+        </div>
+        <div class="text-end">
+            <div class="text-muted small mb-1">
+                Товаров: <span id="modal-cart-qty">{{ session('cart_qty') }}</span>
+            </div>
+            <div class="fw-bold" style="font-size: 20px; color: var(--neon-purple);">
+                Итого: <span id="modal-cart-total">@priceFormat(session('cart_total')) руб.</span>
+            </div>
+        </div>
+    </div>
 @else
-    <h4 class="text-center p-3">Корзина пуста</h4>
+    <h4 class="text-center py-4" style="color: var(--text-muted);">Ваша корзина пуста</h4>
 @endif
