@@ -22,21 +22,17 @@
                                 {{ $item['title'] }}
                             </a>
                         </td>
-                        <td>{{ $item['price'] }} руб.</td>
+                        <td>@priceFormat($item['price']) руб.</td>
                         <td>{{ $item['qty'] }}</td>
                     </tr>
                 @endforeach
                 <tr>
-                    <td id="modal-cart-qty" colspan="3" align="right">
-                        <b>Итого:</b>
-                    </td>
-                    <td>{{ session('cart_qty') }}</td>
+                    <td colspan="3" align="right"><b>Итого:</b></td>
+                    <td id="modal-cart-qty">{{ session('cart_qty') }}</td>
                 </tr>
                 <tr>
-                    <td id="modal-cart-total" colspan="3" align="right">
-                        <b>На сумму:</b>
-                    </td>
-                    <td>{{ session('cart_total') }} руб.</td>
+                    <td colspan="3" align="right"><b>На сумму:</b></td>
+                    <td id="modal-cart-total">@priceFormat(session('cart_total')) руб.</td>
                 </tr>
             </tbody>
         </table>

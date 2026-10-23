@@ -19,7 +19,8 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <button type="button" class="btn btn-primary get-cart" data-url="{{ route('cart.show') }}">
-                        Корзина <span class="badge bg-light text-dark">{{ session('cart_qty', 0) }}</span>
+                        Корзина 
+                        <span class="badge badge-light mini-cart-qty">{{ session('cart_qty') ?? 0 }}</span>
                     </button>
                 </li>
             </ul>
