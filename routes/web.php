@@ -25,3 +25,5 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+
+Route::get('/cart/del-item/{product_id}', [CartController::class, 'delItem'])->name('cart.del_item');

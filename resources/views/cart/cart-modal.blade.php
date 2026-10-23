@@ -7,6 +7,7 @@
                     <th scope="col">Наименование</th>
                     <th scope="col">Цена</th>
                     <th scope="col">Кол-во</th>
+                    <th scope="col"></th> 
                 </tr>
             </thead>
             <tbody>
@@ -24,14 +25,21 @@
                         </td>
                         <td>@priceFormat($item['price']) руб.</td>
                         <td>{{ $item['qty'] }}</td>
+                        <td>
+                            <span class="text-danger del-item" 
+                                  data-action="{{ route('cart.del_item', ['product_id' => $item['id']]) }}"
+                                  style="cursor: pointer;">
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </td>
                     </tr>
                 @endforeach
                 <tr>
-                    <td colspan="3" align="right"><b>Итого:</b></td>
+                    <td colspan="4" align="right"><b>Итого:</b></td>
                     <td id="modal-cart-qty">{{ session('cart_qty') }}</td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="right"><b>На сумму:</b></td>
+                    <td colspan="4" align="right"><b>На сумму:</b></td>
                     <td id="modal-cart-total">@priceFormat(session('cart_total')) руб.</td>
                 </tr>
             </tbody>

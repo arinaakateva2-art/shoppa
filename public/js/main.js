@@ -65,4 +65,20 @@ $(function() {
         e.preventDefault();
         getCart($(this).data('url'));
     });
+
+    $(document).on('click', '.del-item', function(e) {
+        e.preventDefault();
+        let action = $(this).data('action');
+
+        $.ajax({
+            url: action,
+            type: 'get',
+            success: function (result) {
+                showCart(result);
+            },
+            error: function () {
+                alert('Ошибка при удалении товара!');
+            }
+        });
+    });
 });

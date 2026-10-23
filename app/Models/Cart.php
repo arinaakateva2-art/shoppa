@@ -36,4 +36,20 @@ class Cart extends Model
             session(['cart_total' => $qty * $product->price]);
         }
     }
+    public function delItem($product_id)
+    {
+        if (session()->has("cart.{$product_id}")) {
+            $qty = session("cart.{$product_id}.qty");
+            $price = session("cart.{$product_id}.price");
+
+            session(['cart_qty' => session('cart_qty') - $qty]);
+            session(['cart_total' => session('cart_total') - ($qty * $price)]);
+
+            session()->forget("cart.{$product_id}");
+
+            if (session('cart_qty') <= 0) {
+                session()->forget(['cart', 'cart_qty', 'cart_total']);
+            }
+        }
+    }
 }
