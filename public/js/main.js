@@ -81,4 +81,41 @@ $(function() {
             }
         });
     });
+
+    $(document).on('click', '.clear-cart', function(e) {
+        e.preventDefault();
+        let action = $(this).data('action');
+
+        if (confirm('Вы уверены, что хотите очистить корзину?')) {
+            $.ajax({
+                url: action,
+                type: 'get',
+                success: function (result) {
+                    showCart(result);
+                },
+                error: function () {
+                    alert('Ошибка при очистке корзины!');
+                }
+            });
+        }
+    });
 });
+document.addEventListener('mousemove', function(e) {
+    if (Math.random() > 0.5) return; 
+
+    const flower = document.createElement('div');
+    flower.className = 'flower-trail';
+    
+    const flowers = ['🌸', '🌼', '💮', '🌺', '🌷'];
+    flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+    
+    flower.style.left = (e.clientX - 5) + 'px';
+    flower.style.top = (e.clientY - 5) + 'px';
+    
+    document.body.appendChild(flower);
+    
+    setTimeout(() => {
+        flower.remove();
+    }, 5500); 
+});
+

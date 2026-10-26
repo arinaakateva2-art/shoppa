@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
 Route::get('/product/{slug}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/category/{slug}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
