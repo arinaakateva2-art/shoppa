@@ -308,40 +308,48 @@ li a.dropdown-item:focus, li a.dropdown-item:hover {
     100% { opacity: 0; transform: translateY(-40px) scale(0.3) rotate(45deg); }
 }
 
-.vine-left, .vine-right {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 120px; 
-    pointer-events: none;
-    z-index: 998; 
+.ivy {
+    position: absolute;
+    top: -50px; 
+    width: 110px; 
     
-    background-image: url('/img/vine.png'); 
+    background-image: url('/img/ivy.png');
     background-repeat: repeat-y; 
+    background-size: 100% auto; 
     
-    /* ГЛАВНОЕ: Задаем высоту одного куска. 
-       Чем меньше это значение, тем ближе будут куски. 
-       Попробуйте 300px, 250px или 200px */
-    background-size: auto 200px; 
+    opacity: 0.85;
+    filter: none; 
     
-    filter: blur(1.5px) brightness(0.9); 
-    opacity: 0.85; 
-    
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
-.vine-left {
-    left: 0;
-    /* Сдвигаем к центру */
-    transform: translateX(-20px); 
+.ivy-l-1 {
+    left: -20px; 
+    height: 850px; 
+}
+.ivy-l-2 {
+    left: 80px; 
+    height: 650px; 
+    transform: scaleX(-1);
+}
+.ivy-l-3 {
+    left: 20px; 
+    height: 450px; 
 }
 
-.vine-right {
-    right: 0;
-    /* Сдвигаем к центру и отражаем */
-    transform: translateX(20px) scaleX(-1);
+.ivy-r-1 {
+    right: -20px; 
+    height: 850px; 
+    transform: scaleX(-1);
+}
+.ivy-r-2 {
+    right: 80px;
+    height: 650px; 
+}
+.ivy-r-3 {
+    right: 20px; 
+    height: 450px; 
+    transform: scaleX(-1);
 }
 
-@keyframes swayLeft { 0% { transform: translateX(0); } 100% { transform: translateX(0); } }
-@keyframes swayRight { 0% { transform: scaleX(-1) translateX(0); } 100% { transform: scaleX(-1) translateX(0); } }

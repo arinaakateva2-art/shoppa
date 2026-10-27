@@ -10,11 +10,17 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
 
-<div id="falling-leaves-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9998; overflow: hidden;"></div>
-<div class="vine-left"></div>
-<div class="vine-right"></div>
+<div class="ivy-layer">
+    <div class="ivy ivy-l-1"></div>
+    <div class="ivy ivy-l-2"></div>
+    <div class="ivy ivy-l-3"></div>
+    
+    <div class="ivy ivy-r-1"></div>
+    <div class="ivy ivy-r-2"></div>
+    <div class="ivy ivy-r-3"></div>
+</div>
 
 <div class="modal fade" id="cart-modal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -31,7 +37,7 @@
     
     @include('layouts.navbar')
 
-    <div class="container">
+    <div class="container" style="flex-grow: 1;">
         @yield('content')
     </div>
 
