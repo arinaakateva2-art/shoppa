@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
@@ -29,3 +29,6 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
 Route::get('/cart/del-item/{product_id}', [CartController::class, 'delItem'])->name('cart.del_item');
 Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
+Route::match(['get', 'post'], '/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+Route::get('/', [ProductController::class, 'index'])->name('home');

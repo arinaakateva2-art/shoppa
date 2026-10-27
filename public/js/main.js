@@ -19,6 +19,26 @@ function getCart(action) {
     });
 }
 
+function clearCart(action) {
+    if (confirm('Вы уверены, что хотите очистить корзину?')) {
+        $.ajax({
+            url: action,
+            type: 'get',
+            success: function (result) {
+                let now_location = document.location.pathname;
+                if (now_location == '/cart/checkout') {
+                    location = '/cart/checkout';
+                } else {
+                    showCart(result);
+                }
+            },
+            error: function () {
+                alert('Ошибка при очистке корзины!');
+            }
+        });
+    }
+}
+
 $(function() {
     $('.open-search').click(function(e) {
         e.preventDefault();
@@ -74,7 +94,12 @@ $(function() {
             url: action,
             type: 'get',
             success: function (result) {
-                showCart(result);
+                let now_location = document.location.pathname;
+                if (now_location == '/cart/checkout') {
+                    location = '/cart/checkout';
+                } else {
+                    showCart(result);
+                }
             },
             error: function () {
                 alert('Ошибка при удалении товара!');
@@ -85,21 +110,10 @@ $(function() {
     $(document).on('click', '.clear-cart', function(e) {
         e.preventDefault();
         let action = $(this).data('action');
-
-        if (confirm('Вы уверены, что хотите очистить корзину?')) {
-            $.ajax({
-                url: action,
-                type: 'get',
-                success: function (result) {
-                    showCart(result);
-                },
-                error: function () {
-                    alert('Ошибка при очистке корзины!');
-                }
-            });
-        }
+        clearCart(action);
     });
 });
+
 document.addEventListener('mousemove', function(e) {
     if (Math.random() > 0.5) return; 
 
@@ -118,4 +132,3 @@ document.addEventListener('mousemove', function(e) {
         flower.remove();
     }, 5500); 
 });
-

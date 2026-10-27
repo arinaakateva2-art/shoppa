@@ -27,7 +27,7 @@
                         <td>{{ $item['qty'] }}</td>
                         <td>
                             <span class="text-danger del-item" 
-                                  data-action="{{ route('cart.del_item', ['product_id' => $item['id']]) }}"
+                                  data-action="{{ route('cart.del_item', ['product_id' => $item['product_id']]) }}"
                                   style="cursor: pointer;">
                                 <i class="fas fa-times"></i>
                             </span>

@@ -15,7 +15,7 @@ class Cart extends Model
             session(["cart.{$product->id}.qty" => session("cart.{$product->id}.qty") + $qty]);
         } else {
             session(["cart.{$product->id}" => [
-                'id' => $product->id,
+                'product_id' => $product->id, 
                 'title' => $product->title,
                 'slug' => $product->slug,
                 'price' => $product->price,
@@ -36,6 +36,7 @@ class Cart extends Model
             session(['cart_total' => $qty * $product->price]);
         }
     }
+
     public function delItem($product_id)
     {
         if (session()->has("cart.{$product_id}")) {

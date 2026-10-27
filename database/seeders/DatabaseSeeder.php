@@ -52,5 +52,41 @@ class DatabaseSeeder extends Seeder
             'status_id' => $onOrder->id,
             'img' => '1.jpg',
         ]);
+
+        Product::create([
+            'title' => 'Fender Squier Affinity Stratocaster',
+            'content' => 'Легендарная электрогитара для начинающих',
+            'price' => 25000,
+            'old_price' => 28000,
+            'hit' => false,
+            'sale' => true,
+            'category_id' => $guitars->id,
+            'status_id' => $inStock->id,
+            'img' => '1.jpg',
+        ]);
+
+        Product::create([
+            'title' => 'Casio CT-S300 Синтезатор',
+            'content' => 'Компактный синтезатор с 61 клавишей',
+            'price' => 12000,
+            'old_price' => null,
+            'hit' => true,
+            'sale' => false,
+            'category_id' => $keys->id,
+            'status_id' => $inStock->id,
+            'img' => '1.jpg',
+        ]);
+
+        Product::create([
+            'title' => 'Pearl Roadshow Барабанная установка',
+            'content' => 'Полный комплект для барабанщика',
+            'price' => 60000,
+            'old_price' => 75000,
+            'hit' => false,
+            'sale' => true,
+            'category_id' => $drums->id,
+            'status_id' => $onOrder->id,
+            'img' => '1.jpg',
+        ]);
     }
 }

@@ -31,6 +31,12 @@
             </div>
             <div class="modal-body">
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <a href="{{ route('cart.checkout') }}" class="btn btn-primary {{ empty(session('cart')) ? 'd-none' : '' }}">
+                    Оформить заказ
+                </a>
+            </div>
         </div>
     </div>
 </div>

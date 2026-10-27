@@ -353,3 +353,12 @@ li a.dropdown-item:focus, li a.dropdown-item:hover {
     transform: scaleX(-1);
 }
 
+.addtocart .input-group {
+    gap: 10px !important;
+    display: flex !important;
+}
+
+.addtocart .input-group input {
+    border-radius: 8px !important;
+    margin-right: 5px !important;
+}
