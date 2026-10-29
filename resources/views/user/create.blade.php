@@ -72,3 +72,20 @@
         </div>
     </div>
 @endsection
+
+<style>
+    .input-group {
+        display: flex !important;
+        gap: 8px !important; 
+    }
+
+    .input-group .form-control {
+        border-radius: 8px !important; 
+    }
+
+    .input-group-text {
+        border-radius: 8px !important; 
+        background-color: #e9ecef !important;
+        border: 1px solid #ced4da !important;
+    }
+</style>
