@@ -4,21 +4,19 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController; 
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
-Route::get('/product/{slug}', [ProductController::class, 'show'])->name('products.show');
+
+Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
+
 Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categories.show');
 
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
@@ -36,8 +34,14 @@ Route::get('/login', [UserController::class, 'loginForm'])->name('login.create')
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', function () {
-        return 'Админ-панель (в разработке)';
-    })->name('admin.index');
+        $productsCount = \App\Models\Product::count();
+        $ordersCount = \App\Models\Order::count();
+        $usersCount = \App\Models\User::count();
+        
+        return view('admin.dashboard', compact('productsCount', 'ordersCount', 'usersCount'));
+    })->name('index');
+
+    Route::resource('products', AdminProductController::class);
 });

@@ -15,18 +15,16 @@
                         </div>
 
                         <div class="card-thumb text-center p-3">
-                            <a href="{{ route('products.show', ['slug' => $product->slug]) }}">
+                            <a href="{{ route('product.show', ['slug' => $product->slug]) }}">
                                 <img src="{{ $product->getImage() }}" 
                                      alt="{{ $product->title }}" 
                                      class="img-fluid">
                             </a>
                         </div>
                         
-
                         <div class="card-caption d-flex flex-column flex-grow-1 p-3">
-                            
                             <div class="card-title">
-                                <a href="{{ route('products.show', ['slug' => $product->slug]) }}">
+                                <a href="{{ route('product.show', ['slug' => $product->slug]) }}">
                                     {{ $product->title }}
                                 </a>
                             </div>
@@ -40,14 +38,12 @@
                             
                             <form action="{{ route('cart.add') }}" method="post" class="addtocart mt-2">
                                 @csrf
-                                <div class="input-group">
-                                    <input type="number" class="form-control" name="qty" value="1" min="1" max="99">
+                                <div class="d-flex gap-2">
+                                    <input type="number" class="form-control" name="qty" value="1" min="1" max="99" style="max-width: 70px;">
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-info btn-block card-addtocart" type="submit">
-                                            <i class="fas fa-cart-arrow-down"></i> Купить
-                                        </button>
-                                    </div>
+                                    <button class="btn btn-info flex-grow-1 card-addtocart" type="submit">
+                                        <i class="fas fa-cart-arrow-down"></i> Купить
+                                    </button>
                                 </div>
                             </form>
 

@@ -12,8 +12,8 @@ class Product extends Model
     use Sluggable;
 
     protected $fillable = [
-        'title', 'slug', 'content', 'price', 'old_price', 
-        'hit', 'sale', 'img', 'category_id', 'status_id'
+        'title', 'slug', 'content', 'price', 'old_price', 'hit', 'sale', 'img',
+        'category_id', 'status_id', 'qty'
     ];
 
     public function sluggable(): array
@@ -29,9 +29,13 @@ class Product extends Model
     {
         if (!$this->img) {
             return asset('no-image.png');
-        } else {
-            return asset("img/{$this->img}");
         }
+
+        if (str_starts_with($this->img, 'images/')) {
+            return asset('storage/' . $this->img);
+        }
+
+        return asset('img/' . $this->img);
     }
 
     public function category()
