@@ -38,12 +38,12 @@
                         @foreach(session('cart') as $item)
                             <tr>
                                 <td>
-                                    <a href="{{ route('products.show', ['slug' => $item['slug']]) }}">
+                                    <a href="{{ route('product.show', ['slug' => $item['slug']]) }}">
                                         <img src="{{ $item['img'] }}" alt="{{ $item['title'] }}" style="max-width: 50px;">
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('products.show', ['slug' => $item['slug']]) }}">
+                                    <a href="{{ route('product.show', ['slug' => $item['slug']]) }}">
                                         {{ $item['title'] }}
                                     </a>
                                 </td>

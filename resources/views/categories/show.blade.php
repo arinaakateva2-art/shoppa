@@ -19,14 +19,14 @@
                     </div>
 
                     <div class="card-thumb text-center p-3">
-                        <a href="{{ route('products.show', ['slug' => $product->slug]) }}">
+                        <a href="{{ route('product.show', ['slug' => $product->slug]) }}">
                             <img src="{{ $product->getImage() }}" alt="{{ $product->title }}" class="img-fluid">
                         </a>
                     </div>
 
                     <div class="card-caption d-flex flex-column flex-grow-1 p-3">
                         <div class="card-title">
-                            <a href="{{ route('products.show', ['slug' => $product->slug]) }}" class="text-decoration-none" style="color: #555;">
+                            <a href="{{ route('product.show', ['slug' => $product->slug]) }}" class="text-decoration-none" style="color: #555;">
                                 {{ $product->title }}
                             </a>
                         </div>
