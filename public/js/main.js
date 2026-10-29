@@ -120,7 +120,7 @@ document.addEventListener('mousemove', function(e) {
     const flower = document.createElement('div');
     flower.className = 'flower-trail';
     
-    const flowers = ['🌸', '🌼', '💮', '🌺', '🌷'];
+    const flowers = ['🌷', '🌼', '🍃', '🌺', '🌸'];
     flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
     
     flower.style.left = (e.clientX - 5) + 'px';
@@ -131,4 +131,37 @@ document.addEventListener('mousemove', function(e) {
     setTimeout(() => {
         flower.remove();
     }, 5500); 
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('droplets-container');
+    if (!container) return;
+
+    function createDroplet() {
+        const droplet = document.createElement('div');
+        droplet.className = 'droplet';
+        
+        droplet.style.left = Math.random() * 100 + 'vw';
+        
+        const size = Math.random() * 10 + 8; 
+        droplet.style.width = size + 'px';
+        droplet.style.height = size + 'px';
+        
+        const duration = Math.random() * 6 + 6;
+        droplet.style.animationDuration = duration + 's';
+        
+        droplet.style.animationDelay = Math.random() * 2 + 's';
+
+        container.appendChild(droplet);
+
+        setTimeout(() => {
+            droplet.remove();
+        }, (duration + 2) * 1000);
+    }
+
+    setInterval(createDroplet, 800);
+    
+    for (let i = 0; i < 5; i++) {
+        setTimeout(createDroplet, i * 200);
+    }
 });
